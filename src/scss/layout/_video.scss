@@ -1,0 +1,52 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+
+//Asi centramos el h2 y el p en el video, para que se vea bien
+.video {
+  
+    position: relative;
+    max-height: 70rem;
+    min-width: 35rem;
+    overflow: hidden; //overflow controla qué debe hacer un elemento si el contenido es demasiado grande para caber dentro de su área asignada.
+    .overlay{
+        position: absolute;
+        //gradient
+        background: rgb(236,0,255);
+        background: linear-gradient(270deg, rgba(236,0,255,0.5) 14%, rgba(0,236,255,0.3) 49%, rgba(255,9,110,0.3) 84%);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        // Nos permite alinear verticalmente con flexbox
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    video{
+        display: block;
+        width: auto;
+        
+      @include m.desktop {
+        width: 100%;
+      }
+    }
+}
+
+.contenido-video{
+    z-index: 1;  //Coloca el texto encima del video, para que este pueda ser visto por todos los navegadores, Opera no permitia verlo
+    h2{
+      color: v.$blanco;
+      font-size: 7rem;
+      margin: 0;
+    }
+    p{
+        background-color: v.$rosa;
+        //Solo toma el espacio que requiere el parrafo para el color
+        display: inline-block;
+        padding: 1rem 2rem;
+        color: v.$blanco;
+        font-weight: 700;
+        font-size: 2.4;
+  
+    }
+}

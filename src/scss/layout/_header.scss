@@ -1,0 +1,60 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;  // Recordar imnportar es as como m en el mq
+
+.header{
+    background-color: v.$verde;
+    display: flex;
+    @include m.tablet{               //Codigo de la barra fija
+    &.fijo{
+        left: 0;
+        top: 0;
+        position: fixed;
+        width: 100%;
+        box-shadow: .1rem .2rem .3rem #333;
+        }
+    }
+
+    h1{
+        margin: 0;
+        color: v.$blanco;
+        text-align: center;
+        @include m.tablet {
+            margin: 0;
+        }
+    }
+    .contenido-header{
+        padding: 2rem;
+        @include m.tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+    }
+}
+
+.navegacion-principal {
+    @include m.tablet {
+        display: flex;
+        gap: 2rem;
+    }
+    a{  
+        display: block;
+        text-align: center;
+        margin-top: 1rem;
+        color: v.$blanco;
+        font-size: 2.4rem;
+        &:hover{
+            color: v.$amarillo;
+        }
+    }
+}
+
+// .prueba{       //Uso de mixins
+//    @include m.heading(v.$amarillo);
+// }
+
+// .texto{
+//     @include m.heading;
+// }
+
